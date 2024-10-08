@@ -1,11 +1,14 @@
 package model;
 
+import java.time.LocalTime;
+import java.util.Date;
+
 public class User {
-    int id;
+    LocalTime id;
     String name;
     String email;
 
-    public User(int id, String name, String email) {
+    public User(LocalTime id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -15,7 +18,7 @@ public class User {
 
     }
 
-    public int getId() {
+    public LocalTime getId() {
         return id;
     }
 
@@ -27,8 +30,8 @@ public class User {
         return email;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId() {
+        this.id = LocalTime.now();
     }
 
     public void setName(String name) {

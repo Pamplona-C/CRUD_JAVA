@@ -1,5 +1,4 @@
 package controller;
-
 import model.UserDAO;
 
 import java.util.Scanner;
@@ -16,6 +15,7 @@ public class UserController {
     public void start() {
         boolean running = true;
         while (running) {
+            System.out.println("\n");
             System.out.println("Escolha uma opção:");
             System.out.println("1 - Adicionar usuário");
             System.out.println("2 - Listar usuários");
@@ -61,21 +61,23 @@ public class UserController {
     }
 
     private void updateUser(){
-        System.out.println("Digite o id do Usuário que deseja atualizar : ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+        System.out.println("Digite o Nome do Usuário que deseja atualizar : ");
+        String antName = scanner.nextLine();
+        System.out.println("***Dados atuais*** : ");
+        userDAO.getUserByName(antName);
         System.out.println("Digite o novo nome do Usuário : ");
         String name = scanner.nextLine();
         System.out.println("Digite o novo email do Usuário : ");
         String email = scanner.nextLine();
 
-        userDAO.updateUser(id, name, email);
+        userDAO.updateUser(antName, name, email);
+        System.out.println("***Novos dados*** : ");
+        userDAO.getUserByName(name);
     }
 
     private void deleteUser(){
-        System.out.println("Digite o id do usuário que deseja remover : ");
-        int id = scanner.nextInt();
-        scanner.nextLine();  // Consumir a nova linha
-        userDAO.removeUser(id);
+        System.out.println("Digite o Nome do usuário que deseja remover : ");
+        String name = scanner.nextLine();
+        userDAO.removeUser(name);
     }
 }

@@ -15,7 +15,7 @@ public class ItemRepository {
    }
 
    public void updateItem(User user, int id, String name){
-       user.setId(id);
+       user.setId();
        user.setName(name);
    }
 
